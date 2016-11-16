@@ -1,0 +1,33 @@
+.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+        a.navbar-brand(href="/") ToDoSite
+    ul.nav.navbar-nav
+        li(class=   title=='Home'   ? 'active' : ''):         a(href="/")       home
+        li(class=   title=='Protected page' ? 'active' : ''): a(href="/protected_page") protected page
+
+        li.dropdown
+          a.dropdown-toggle(data-toggle="dropdown",href="#") todos
+            span.caret
+          ul.dropdown-menu
+            li(class=title=='todos.htm'?'active':''): a(href="/todos.htm")            as static htm
+            li(class=title=='jquery'   ?'active':''): a(href="/todos_jquery_view")    as jQuery component
+            li(class=title=='backbone' ?'active':''): a(href="/todos_backbone_view")  as backbone component
+            li(class=title=='react'    ?'active':''): a(href="/todos_react_view")     as react component
+            li(class=title=='angular'  ?'active':''): a(href="/todos_angular_view")   as angular component
+
+    ul.nav.navbar-nav.navbar-right
+        unless(id)
+          li(class= title=='Login'  ? 'active' : ''):         a(href="/login")  login
+          li(class= title=='Signup' ? 'active' : ''):         a(href="/signup") signup
+
+        if(id)
+          li.dropdown
+            a.dropdown-toggle(data-toggle="dropdown",href="#")
+              | #{id}
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href="/protected_page") settings
+              li
+                a(href="/logout")         logout

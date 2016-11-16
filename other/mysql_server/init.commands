@@ -1,0 +1,23 @@
+ALTER USER 'root'@'localhost' IDENTIFIED BY '1111';
+--comment
+CREATE USER 'user1'@'localhost' IDENTIFIED BY 'password1';
+CREATE DATABASE dbtodo;
+USE dbtodo;
+CREATE TABLE todos ( id INT UNIQUE NOT NULL AUTO_INCREMENT, done BOOLEAN DEFAULT false, text VARCHAR(255), PRIMARY KEY(id) );
+GRANT SELECT,INSERT,UPDATE,DELETE   ON dbtodo.* TO 'user1'@'localhost' IDENTIFIED BY 'password1';
+
+INSERT INTO todos(text) VALUES("wr ewgt");
+INSERT INTO todos(text) VALUES("rqwrtwr ewgt");
+INSERT INTO todos(text) VALUES("e ywgt");
+INSERT INTO todos(text) VALUES("ssswr ewgt");
+--INSERT INTO todos(id,done,text) VALUES(1,true,"wr ewgt");
+--INSERT INTO todos(done,text) VALUES(true,"wr ewgt");      SELECT * FROM todos ORDER BY id ASC;
+--INSERT INTO todos(text) VALUES("wr ewgt");                SELECT * FROM todos ORDER BY id ASC;
+
+UPDATE todos SET done=true WHERE id=2;
+DELETE FROM todos WHERE id=3;
+INSERT INTO todos(text) VALUES("aasa sad wrewgt");
+
+SELECT * FROM todos WHERE done=false ORDER BY id ASC;
+SELECT * FROM todos WHERE done=true ORDER BY id ASC;
+SELECT * FROM todos ORDER BY id ASC;

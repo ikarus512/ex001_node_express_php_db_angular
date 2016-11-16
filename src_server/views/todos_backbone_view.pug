@@ -1,0 +1,14 @@
+extend ./common/layout.pug
+block vars
+    - var title = 'backbone';
+
+block append scriptAfterBody
+  //-script(src="libs/jquery.min.js") //Already present
+  script(src="libs/underscore-min.js")
+  script(src="libs/backbone-min.js")
+  //-script(src="libs/backbone.localStorage-min.js")
+  script(src="js/todos_bb.js")
+
+
+block content
+  #todoapp

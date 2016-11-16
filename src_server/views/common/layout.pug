@@ -1,0 +1,46 @@
+//- layout.pug
+doctype html
+
+block vars
+
+html(lang="ru")
+  head
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(charset="utf-8")
+
+    block title
+      title #{title}
+
+    block css
+      link(rel="stylesheet", href="/libs/bootstrap.min.css")
+
+    block scriptBeforeBody
+      script(src="libs/jquery.min.js")
+      script(src="libs/bootstrap.min.js")
+
+  body
+    .container
+      .row.text-center(style='background-color:#ccc')
+          p ToDoApp(c).
+
+      .row
+        block header
+          include ./nav.pug
+          if(greeting)
+            p.alert.alert-info #{greeting}
+              a.close(href="#",data-dismiss="alert",aria-label="close") &times;
+          if(errmessage)
+            p.alert.alert-danger #{errmessage}
+              a.close(href="#",data-dismiss="alert",aria-label="close") &times;
+
+      .row
+        block content
+          .container
+
+      .row
+          br
+          block foot
+            .text-center(style='background-color:#ccc')
+              p ToDoApp(c).
+
+  block scriptAfterBody

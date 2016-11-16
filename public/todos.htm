@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Todo Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="libs/bootstrap.min.css">
+    <script src="libs/jquery.min.js"></script>
+    <script src="libs/bootstrap.min.js"></script>
+    <script src="todos_jq.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header"><a class="navbar-brand" href="/">ToDoSite</a></div>
+        <ul class="nav navbar-nav">
+          <li><a href="/"> home </a> </li>
+          <!-- <li class="active"><a href="/todos.htm">todos</a></li> -->
+        </ul>
+      </div>
+    </div>
+  </div>
+
+Todos client as static html.
+
+  <div class="row">
+    <div class="panel panel-default panel-body col-xs-2" style="height:60px">
+        <select id="mySelect" tabindex="1" autofocus>
+          <option value="list all"   >list all</option>
+          <option value="list undone">undone</option>
+          <option value="list done"  >done  </option>
+        </select>
+    </div>
+    <div class="panel panel-default panel-body col-xs-3" style="height:60px">
+        <label>Add:</label>
+        <input type="text" id="addTodo" style="width:70%" tabindex="2" />
+    </div>
+    <div class="panel panel-default panel-body col-xs-2" style="height:60px">
+        <b>Delete:</b>
+        <input type="text" id="deleteTodo" style="width:40%" tabindex="3">
+    </div>
+    <div class="panel panel-default panel-body col-xs-2" style="height:60px">
+        <b>Toggle:</b>
+        <input type="text" id="toggleTodo" style="width:40%" tabindex="4">
+    </div>
+    <div class="panel panel-default panel-body" style="height:60px">
+      <label id="todosview3"> </label>
+    </div>
+  </div>
+  <div class="container"> <div id="todosview4"> </div> </div>
+  <div class="container"> <div id="todosview2"> </div> </div>
+  <div class="container"> <div id="todosview1">  </div> </div>
+
+</div>
+
+</body>
+</html>

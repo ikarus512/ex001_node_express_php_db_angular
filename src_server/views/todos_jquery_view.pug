@@ -1,0 +1,34 @@
+extend ./common/layout.pug
+block vars
+    - var title = 'jquery';
+
+
+
+block append scriptAfterBody
+  script(src="js/todos_jq.js")
+
+
+
+block content
+  h2 Todos jQuery
+  .row
+    .panel.panel-default.panel-body.col-xs-2(style="height:60px")
+        select#mySelect(tabindex="1",autofocus)
+          option(value="list all"   ) list all
+          option(value="list undone") undone
+          option(value="list done"  ) done
+    .panel.panel-default.panel-body.col-xs-3(style="height:60px")
+        label Add:
+        input#addTodo(type="text",style="width:70%",tabindex="2")
+    .panel.panel-default.panel-body.col-xs-2(style="height:60px")
+        b Delete:
+        input#deleteTodo(type="text",style="width:40%",tabindex="3")
+    .panel.panel-default.panel-body.col-xs-2(style="height:60px")
+        b Toggle:
+        input#toggleTodo(type="text",style="width:40%",tabindex="4")
+    .panel.panel-default.panel-body(style="height:60px")
+        label#todosview3
+
+  .container:   #todosview4
+  .container:   #todosview2
+  .container:   #todosview1
