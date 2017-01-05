@@ -35,7 +35,7 @@ app.Todo = Backbone.Model.extend({
     done: false
   },
   toggle: function(){
-    this.save({ done: !this.get('done')}); // REST API: sends HTTP PUT to /todos/:id
+    this.save({ done: !this.get('done')}); // REST API: this.save() sends HTTP PUT to /todos/:id
   }
 });
 

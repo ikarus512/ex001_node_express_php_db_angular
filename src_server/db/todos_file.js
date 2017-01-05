@@ -1,9 +1,25 @@
+/**
+ * Storing todo-items in file.
+ *
+ * @module src_server/db/todos_file
+ */
+
+"use strict";
 var fs = require('fs');
 var path = require('path');
 var extend = require('extend');
 
+/** @alias module:src_server/db/todos_file */
 var Todos = {};
 
+/**
+ * Сохраняет массив заданий todo в локальный файл.
+ *
+ * @param {array} arr - массив заданий todo,
+ * @param {string} user - имя пользователя,
+ * @param {module:src_server/db/todos_file~onSuccessCallback} onSuccess - will be called on success,
+ * @param {module:src_server/db/todos_file~onErrorCallback} onError - will be called on error,
+ */
 Todos.save=function(arr,user,onSuccess,onError){
   var f=__dirname+'/todos_db.'+user+'.txt';
   var data=JSON.stringify(arr);
@@ -14,6 +30,18 @@ Todos.save=function(arr,user,onSuccess,onError){
   });
 };
 
+/**
+ * @callback module:src_server/db/todos_file~onSuccessCallback
+ * @param {string} msg - undefined.
+ */
+
+/**
+ * @callback module:src_server/db/todos_file~onErrorCallback
+ * @param {string} msg - undefined.
+ */
+
+
+/** load */
 Todos.load=function(user,onSuccess,onError){
   var f=__dirname+'/todos_db.'+user+'.txt';
   fs.readFile(f, function(err, data){
@@ -26,6 +54,7 @@ Todos.load=function(user,onSuccess,onError){
   });
 };
 
+/**  */
 Todos.empty=function(user,onSuccess,onError){
     //var f=__dirname+'/todos_db.'+user+'.txt';
     this.save([],user,function(){
@@ -35,11 +64,13 @@ Todos.empty=function(user,onSuccess,onError){
 
 
 
+/**  */
 Todos.get_all = function(json,user,onSuccess,onError){
     this.load(user,function(arr){
       onSuccess(arr);
     });
-}
+};
+/**  */
 Todos.post_add_new = function(todo,user,onSuccess,onError){
     var self=this;
     this.load(user,function(arr){
@@ -55,7 +86,8 @@ Todos.post_add_new = function(todo,user,onSuccess,onError){
             onSuccess(newTodo);
         });
     });
-}
+};
+/**  */
 Todos.put_update_one = function(json,user,onSuccess,onError){
     var self=this;
     this.load(user,function(arr){
@@ -69,8 +101,9 @@ Todos.put_update_one = function(json,user,onSuccess,onError){
         self.save(arr,user,function(){
             onSuccess({});
         });
-    })
-}
+    });
+};
+/**  */
 Todos.delete_one = function(json,user,onSuccess,onError){
     var self=this;
     this.load(user,function(arr){
@@ -80,9 +113,10 @@ Todos.delete_one = function(json,user,onSuccess,onError){
         self.save(arr,user,function(){
             onSuccess({});
         });
-    })
-}
+    });
+};
 
+/**  */
 Todos.process = function(json,user,onSuccess,onError){
     var self=this;
     switch (json.action) {
@@ -96,7 +130,7 @@ Todos.process = function(json,user,onSuccess,onError){
                     default:            a=arr; break;
                 }
                 onSuccess( { "USER":user, "statusTxt":"Ok", "arr":a } );
-            })
+            });
             break;
         case "addTodo":
             this.load(user,function(arr){
@@ -132,6 +166,6 @@ Todos.process = function(json,user,onSuccess,onError){
             //res.status(500).send();
             //break;
     }
-}
+};
 
 module.exports = Todos;

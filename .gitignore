@@ -1,0 +1,7 @@
+# Development-related files
+coverage/
+node_modules/
+
+# Generated files
+test/tutorials/out
+out/
