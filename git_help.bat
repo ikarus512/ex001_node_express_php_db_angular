@@ -23,6 +23,9 @@ rem git remote rm origin
 rem git remote add origin https://github.com/ikarus512/test1.git
 rem git remote add origin git@github.com:ikarus512/test1.git
 
+rem git remote -v    &REM show origins
+rem git remote set-url origin https://github.com/ikarus512/test1
+
 rem git checkout master         &rem switch to branch
 rem git pull origin master      &rem get last changes
 rem  git add src
