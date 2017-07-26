@@ -13,6 +13,11 @@ rem git push -u origin master
 rem git diff
 rem git diff origin/master master
 
+rem git clone git@github.com:ikarus512/test1.git
+rem git diff -w
+rem git status
+rem git add -A && git commit -m "cosmetic" && git push origin master
+rem git add -A; git commit -am "cosmetic"; git push origin master
 
 rem git clone https://github.com/ikarus512/test1.git   & cd test1
 rem mkdir test1 & cd test1 & git init
@@ -24,7 +29,10 @@ rem git remote add origin https://github.com/ikarus512/test1.git
 rem git remote add origin git@github.com:ikarus512/test1.git
 
 rem git remote -v    &REM show origins
-rem git remote set-url origin https://github.com/ikarus512/test1
+rem git remote set-url origin https://github.com/ikarus512/test1.git
+
+rem https://help.github.com/articles/error-permission-denied-publickey/#platform-windows
+rem https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
 
 rem git checkout master         &rem switch to branch
 rem git pull origin master      &rem get last changes
