@@ -19,9 +19,9 @@ rem git status
 rem git add -A && git commit -m "cosmetic" && git push origin master
 rem git add -A; git commit -am "cosmetic"; git push origin master
 
-rem git clone https://github.com/ikarus512/test1.git   & cd test1
-rem mkdir test1 & cd test1 & git init
-rem git init test1   & cd test1
+rem git clone https://github.com/ikarus512/test1.git   && cd test1
+rem mkdir test1 && cd test1 && git init
+rem git init test1   && cd test1
 rem git config user.email "ikarus512@site.org"
 rem git config user.name "ikarus512"
 rem git remote rm origin
